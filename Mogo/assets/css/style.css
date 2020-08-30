@@ -1,0 +1,1274 @@
+body {
+    margin: 0;
+    /* font-family: 'Kaushan Script', cursive; */
+    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333333;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+hr {
+    display: block;
+    width: 100%;
+    height: 1px;
+    border: 0;
+    background-color:#e5e5e5;
+    margin: 40px 0;
+}
+
+/* Page */
+
+.page {
+    overflow: hidden; /* прописывается, если какой-то элемент вылезает за сетку */
+}
+
+/* Container */
+
+.container {
+    width: 100%;
+    max-width: 1230px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+/* Intro */
+
+.intro {
+    display: flex; /* раскидывает элементы по горизонтали */
+    flex-direction: column; /* каждый новый элемент в блоке будет начинаться с новой строки */
+    justify-content: center; /* выравнивает ячейку по центру блока */
+    width: 100%;
+    height: 100vh; /* Высота будет занимать 100% экрана, то есть будет зависить от ширины экрана */
+    min-height: 820px;
+    position: relative;
+
+    background-image: url(../images/intro.jpg);
+    background-repeat: no-repeat;  /* устанавливает одно фоновое изображение без его повторений */
+    background-size: cover; /* масштабирует изображение так, чтобы его ширина или высота равнялась ширине или высоте блока */
+    background-position: center;  /* позиционирование фонового изображения по центру */
+}
+
+.intro__inner {
+    width: 100%;
+    max-width: 880px;
+    margin: 0 auto;  /* выравнивание по центру */
+    text-align: center; /* выравнивание текста по центру */
+}
+
+.intro__suptitle {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 72px;
+    font-weight: 400;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.intro__title {
+    font-weight: 700;
+    font-size: 150px;
+    line-height: 1;
+    color: #ffffff;
+    text-transform: uppercase; 
+}
+
+.intro__title::after { /* псевдоэлемент */
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #fff;
+    margin: 50px auto;  /* auto-выравнивание по центру, отступ сверху и снизу по 50px */
+}
+
+/* Header */
+
+.header {
+    width: 100%;
+    padding-top: 30px;
+    position: absolute; /* прижимаем к верху */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* чтобы он был поверх всех элементов */
+}
+
+.header.fixed { 
+    padding: 0;
+
+    background-color: #eb8b8d;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); /* тень под динамической шапкой */
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    
+    transform: translate3d(0, 0, 0); /* чтобы менюшка не дергалась при скроле */
+    
+}
+
+.header.active {
+    background-color: #eb8b8d;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between; /* между элементами данного флекс-бокса будет пустое место (расстояние) */
+    align-items: center; /* выравнивание элементов по горизонтальной линии (центру) */
+}
+
+.header__logo {
+    font-weight: 700;
+    font-size: 30px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+/* Nav */
+
+.nav {
+    font-size: 14px;
+    text-transform: uppercase; /* делает текст большими буквами */
+}
+
+.nav__link {
+    display: inline-block; /* задает размеры и отступы кнопки */
+    vertical-align: top; /* выравнивание по вертикальной границе, мы делаем по верху */
+    margin-left: 45px;
+    position: relative; /* Относительное позиционирование */
+    color: #ffffff;
+    text-decoration: none;  /* убирает линию снизу */
+    transition: color .1s linear; /* при наводе происходит плавный переход в другой цвет */ 
+}
+
+.nav__link::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #fce38a;
+    opacity: 0;
+    position: absolute; /* Абсолютное позиционирование */
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    transition: opacity .1s linear;
+}
+
+.nav__link:hover {  /* псевдокласс */
+    color: #fce38a; /* при наводе текст меняет свой цвет на другой */   
+}
+
+.nav__link:hover::after,
+.nav__link.active::after { 
+    opacity: 1; /* при наводе происходит плавный переход цвета линии */  
+}
+
+.nav__link.active {
+    color: #fce38a;
+}
+
+/* Nav-toggle */
+
+.nav-toggle {
+    width: 30px;
+    padding: 10px 0;
+    display: none;
+
+    font-size: 0;
+    color: transparent; /* с помощью этих двух элементов скрываем менюшку */
+
+    border: 0;
+    background: none;
+    cursor: pointer;
+
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    z-index: 1;    
+}
+
+.nav-toggle:focus {
+    outline: 0; /* убираем обводку при наводе */
+}
+
+.nav-toggle__item {
+    display: block;
+    width: 100%;
+    height: 3px;
+
+    background-color: #fff;
+
+    position: absolute;
+    top: -20px;
+    right: 0;
+    bottom: 0;
+    left: 8px;
+    margin: auto;
+
+    transition: background .2s linear; /* чтобы трансформация была плавной */
+}
+
+.nav-toggle.active .nav-toggle__item {
+    background: none;
+}
+
+
+
+.nav-toggle__item::before,
+.nav-toggle__item::after {
+    content: "";
+    width: 100%;
+    height: 3px;
+
+    background-color: #fff;
+
+    position: absolute;
+    left: 0;
+    z-index: 1;
+
+    transition: transform .2s linear; /* чтобы трансформация была плавной */
+}
+
+.nav-toggle__item::before {
+    top: -8px;
+}
+.nav-toggle__item::after {
+    bottom: -8px;
+}
+
+.nav-toggle.active .nav-toggle__item::before { /* создаем крестик */
+    transform-origin: left top;
+    transform: rotate(45deg)
+    translateX(-3px);
+}
+
+.nav-toggle.active .nav-toggle__item::after {
+    transform-origin: left bottom;
+    transform: rotate(-45deg)
+    translateX(-3px);
+}
+
+/* Button */
+
+.btn {
+    display: inline block; /* задает размеры и отступы кнопки */
+    vertical-align: top; /* выравнивание по вертикальной границе, мы делаем по верху */
+    border: 3px solid #fff;
+    padding: 8px 27px;
+    color: #ffffff;
+    text-transform: uppercase; /* делает текст большими буквами */
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none; /* убирает линию снизу */
+    transition: background .1s linear, color .1s linear; /* плавный переход цвета фона и цвета текста */
+}
+
+.btn:hover { /* псевдокласс */
+    background-color: #fff;
+    color: #333333;
+}
+
+/* Slider */
+
+.slider {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.slider__inner {
+    display: flex; /* раскидывает элементы по горизонтали */
+    justify-content: space-between; /* между элементами данного флекс-бокса будет пустое место (расстояние) */
+}
+
+.slider__item {
+    width: 23%;
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: uppercase;
+    padding: 20px 0;
+    border-top: 3px solid #fff;
+    opacity: 0.7; /* делает линию прозрачной на 70%*/
+    position: relative; /* Чтобы эту полоску мы могли позиционировать абсолютно, относительно этого элемента */
+}
+
+.slider__item.active {
+    opacity: 1; /* делает линию непрозрачной на 100%*/
+}
+
+.slider__item.active::before { /* псевдоэлемент */
+    content: "";
+    display: block;
+    width: 70px;
+    height: 3px;
+    background-color: #f38181;
+    position: absolute;
+    top: -3px;
+    left: 0;
+    z-index: 1;
+}
+
+.slider__num {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* Section */
+
+.section {
+    padding: 80px 0;
+}
+
+.section--devices {
+    background-image: url(../images/devices/devices-bg.jpg);
+    background-repeat: no-repeat;  /* устанавливает одно фоновое изображение без его повторений */
+    background-size: cover; /* масштабирует изображение так, чтобы его ширина или высота равнялась ширине или высоте блока */
+    background-position: center;  /* позиционирование фонового изображения по центру */
+    padding-bottom: 0;
+    margin-bottom: 40px;
+}
+
+.section--gray {
+    background-color: #f8f8f8;
+}
+
+.section--clients {
+    background-image: url(../images/clients/clients-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.section--map {
+    background-image: url(../images/map-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 40px 0;
+}
+
+.section__header {
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+.section__suptitle {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.section__title {
+    font-weight: 700;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+.section__title::after { /* псевдоэлемент */
+    content:"";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #f38181;
+    margin: 30px auto;  /* auto-выравнивание по центру, отступ сверху и снизу по 30px */
+}
+
+.section__text {
+    font-family: 'Roboto', sans-serif;
+    color: #999999;
+}
+
+/* Card */
+
+.card {
+    display: flex; /* раскидывает элементы по горизонтали */
+    justify-content: space-between;  /* между элементами данного флекс-бокса будет пустое место (расстояние) */
+    margin: 80px -15px 0; /* отступ -15px для мобильной версии */
+    flex-wrap: wrap;
+}
+
+.card__item {
+    width: 33.33333%;
+    padding: 0 15px; /* для мобильной версии */
+}
+
+.card__inner {
+    position: relative; /* чтобы позиционировать данный текст поверх картинки, относительно его item */
+    background-color: #95e1d3;
+}
+
+.card__item:hover .card__img {
+    transform: translate3d(-10px, -10px, 0);
+}
+
+.card__item:hover .card__img img {
+    opacity: .1;
+}
+
+.card__item:hover .card__content {
+    opacity: 1;
+}
+
+.card__img {
+    background: linear-gradient(to bottom, #f38181, #fce38a);  /* градиент сверху вниз */
+    transition: transform .2s linear;  /* чтобы трансформация происходила плавно */
+}
+
+.card__img img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    transition: opacity .1s linear; /* при наводе делает плавный переход */
+}
+
+.card__content {
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    opacity: 0;
+
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 2;
+
+    transform: translate3d(0, -50%, 0);
+    transition: opacity .2s linear;
+
+}
+
+.card__text {
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.card__info {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.card__name {
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.card__prof {
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    color: #999999;    
+}
+
+/* Statistics */
+
+.statistics {
+    background-color: #95e1d3;
+}
+
+.stat {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.stat__item {
+    flex: 1 1 0; /* чтобы сделать все колонки одинаковой ширины */
+    padding: 80px 25px;
+    border-left: 1px solid #b5eae0;
+    text-align: center;
+    color: #ffffff;
+}
+
+.stat__item:last-child {
+    border-right: 1px solid #b5eae0; 
+}
+
+.stat__count {
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 1;
+    margin-bottom: 10px;  
+}
+
+.stat__text {
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+/* Services */
+
+.services {
+    display: flex; /* раскидывает элементы по горизонтали */
+    flex-wrap: wrap; /* чтобы наши колонки могли перескакивать на новую строку */
+}
+
+.services__item {
+    width: 33.33333%;
+    padding: 0 20px 40px 90px;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.services__item--border {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.services__icon {
+    position: absolute;
+    top: 4px;
+    left: 30px;
+    z-index: 1;
+}
+
+.services__title {
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.services__text {
+    font-family: 'Roboto', sans-serif;
+    color: #999999;
+}
+
+/* Devices */
+
+.devices {
+    width: 100%;
+    max-width: 620px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.devices__item {
+    display: block;
+    max-width: 100%;
+    height: auto;  /* эти два элемента предназначены для мобильной версии 575px */
+}
+
+.devices__item--iphone {
+    position: absolute;
+    bottom: -90px;
+    right: -55px;
+    z-index: 1;
+}
+
+/* We do */
+
+.wedo {
+    display: flex;
+    margin: 0 -15px; /* этот элемент предназначен для мобильной версии */
+    flex-wrap: wrap; /* этот элемент предназначен для мобильной версии */
+}
+
+.wedo__item {
+    width: 50%;
+    padding: 0 15px; /* этот элемент предназначен для мобильной версии */
+}
+
+.wedo__img {
+    display: block;
+    max-width: 100%;
+    height: auto; /* эти три элемента предназначены для мобильной версии */
+}
+
+/* Accordion */
+
+.accordion__item {
+    border: 1px solid #e5e5e5;
+    margin-top: 10px;
+}
+
+.accordion__item:first-child { /* первый элемент */
+    margin-top: 0;
+}
+
+.accordion__item.active .accordion__content {
+    display: block;
+}
+
+.accordion__item.active .accordion__header {
+    border-bottom-color: #e5e5e5;
+}
+
+.accordion__item.active .accordion__header::after {
+    transform: translateY(-50%)
+    rotate(-45deg);
+    margin-top: 5px;
+}    
+
+.accordion__header {
+    padding: 18px 20px 18px 60px;
+    position: relative;
+    border-bottom: 1px solid transparent;
+    cursor: pointer;   
+}
+
+.accordion__header::after { /* делаем arrow (стрелку) */
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
+    
+    border-top: 2px solid #cccccc;
+    border-right: 2px solid #cccccc;
+
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    z-index: 1;
+
+    transform: translateY(-50%)
+    rotate(135deg);
+}
+
+.accordion__icon {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    z-index: 1;
+
+    transform: translateY(-50%);
+}
+
+.accordion__title {
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.accordion__content {
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    color: #999999;
+
+    padding: 2px 21px;
+    display: none; /* контент скрыт */
+}
+
+/* Reviews */
+
+.reviews {
+    position: relative;
+}
+
+.reviews .slick-slider {
+    padding: 0 80px;
+}
+
+.reviews__item {
+    padding: 20px 0 20px 205px;
+    position: relative;
+}
+
+.reviews__icon {
+    display: block; /* для мобильной версии */
+    border: 3px solid #95e1d3;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 1;
+
+    transform: translateY(-50%);
+}
+
+.reviews__img {
+    display: block; /* для мобильной версии */
+
+    width: 180px;
+    height: 180px;
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    z-index: 1;
+
+    transform: translateY(-50%);
+}
+
+.reviews__text {
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-size: 24px;
+    color: #999999;
+    margin-bottom: 5px;
+}
+
+.reviews__author {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 24px;
+}
+
+.reviews__author::before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 60px;
+    height: 3px;   
+    background-color: #f38181;
+    margin-right: 10px;
+}
+
+.slick-arrow { /* стрелки от карусели */
+    display: block; /* для карусели */
+    font-size: 0;
+    color: transparent; /* эти два элемента скрывают текст в кнопках */
+
+    border: 0;
+    background: none; /* эти три элемента для карусели */
+    cursor: pointer;
+
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    transform: translateY(-50%);
+}
+.slick-arrow:focus {
+    outline: 0; /* убираем фокус */
+}
+
+.slick-arrow::after {
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
+    
+    border-top: 2px solid #cccccc;
+    border-left: 2px solid #cccccc;   
+}
+
+.slick-prev { /* стрелки от карусели */
+    left: 0px;
+    transform: rotate(-45deg);
+}
+
+.slick-next { /* стрелки от карусели */
+    right: 0px;
+    transform: rotate(135deg);
+}
+
+/* Social */
+
+.social {
+    display: flex;
+    justify-content: center;
+}
+
+.social__item {
+    width: 55px;
+    height: 55px;
+    padding: 10px;
+
+    background-color: #fce38a;
+    border-right: 1px solid #f38181;
+
+    font-size: 26px;
+    text-decoration: none;
+    color: #f38181; 
+    
+    transition: background .1s linear, color .1s linear;  /* плавный переход цвета фона и цвета иконки */
+}
+
+.social__item:last-child { /* последний элемент */
+   border-right: 0;
+}
+
+.social__item:hover {
+    color: #ffffff;
+    background-color: #f38181;
+}
+
+
+/* Logos */
+
+.logos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* элементы выравниваются по середине блока */
+    margin: 0 -15px;
+}
+
+.logos__item {
+    padding: 0 15px; 
+}
+
+.logos__img {
+    display: block;
+    max-width: 100%;
+    height: auto; /* весь блок предназначен для мобильной версии */
+}
+
+/* Works */
+
+.works {
+    display: flex;
+    margin-top: 80px; 
+    justify-content: center; 
+}
+
+.works__col {
+    flex: 1 1 0;
+    max-width: 480px;
+}
+
+.works__item {
+    position: relative;
+    background: linear-gradient(to bottom, #f38181, #fce38a);
+}
+
+.works__item:hover .works__image {
+    opacity: .1;
+}
+
+.works__item:hover .works__info {
+    opacity: 1;
+}
+
+.works__image {
+    display: block;
+    max-width: 100%;
+    height: auto; /* эти два элемента прописывают, если картинка больше ширины экрана монитора */
+
+    transition: opacity .2s linear;
+}
+
+.works__info {
+    width: 100%;
+    padding: 0 15px;
+
+    text-align: center;
+    color: #ffffff;
+    opacity: 0;
+
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 1;
+
+    transform: translate3d(0, -50%, 0);
+    transition: opacity .2s linear;
+}
+
+.works__title {
+    font-size: 14px;
+    text-transform: uppercase;
+    margin: 5px 0;
+}
+
+.works__text {
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+}
+
+/* Clients */
+
+.clients {
+    display: flex;
+    flex-wrap: wrap; /* чтобы наши колонки могли перескакивать на новую строку */
+    margin-top: 70px;
+}
+
+.clients__item {
+    width: 50%;
+    padding: 0 50px 60px 180px;
+    position: relative;
+}
+
+.clients__photo {
+    position: absolute;
+    top: 0;
+    left: 40px;
+    z-index: 1;
+    border-radius: 50%;
+}
+
+.clients__name {
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.clients__prof {
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+}
+
+.clients__prof::after {
+    content:"";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #f38181;
+    margin: 10px 0;
+}
+
+.clients__text {
+    font-family: 'Roboto', sans-serif;
+    color: #999999;
+}
+
+/* Blog */
+
+.blog {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 -15px; /* для мобильной версии */
+}
+
+.blog__item {
+    width: 33.33333%;
+    padding: 0 15px; /* для мобильной версии */
+}
+
+.blog__header {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.blog__photo {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.blog__date {
+    position: absolute;
+    
+    width: 60px;
+    height: 70px;
+    background-color: #95e1d3;
+
+    bottom: 10px;
+    left: -10px;
+    z-index: 1;
+
+    text-align: center;
+    color: #ffffff;
+    line-height: 1;
+}
+
+.blog__number {
+    font-weight: 700;
+    font-size: 30px;
+    padding-top: 12px;
+    
+}
+
+.blog__month {
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+}
+
+.blog__content {
+    margin-bottom: 15px;
+}
+
+.blog__title {
+    font-size: 14px;
+    text-transform: uppercase; 
+    margin-bottom: 10px;  
+}
+
+.blog__title a { /* она примет значения родителя */
+    color: inherit;
+    text-decoration: none;
+}
+
+.blog__title a:hover { /* при наводе будет показываться линия под заголовком */
+    text-decoration: underline;
+}
+
+.blog__text {
+    font-family: 'Roboto', sans-serif;
+    color: #999999;   
+}
+
+.blog__footer {
+    border-top: 1px solid #e5e5e5;
+    padding-top: 15px;
+
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    color: #999999;
+}
+
+.blog-stat__item {
+    display: inline block; /* задает размеры и отступы иконки */
+    vertical-align: top; /* выравнивание по вертикальной границе, мы делаем по верху */
+    margin-right: 15px;
+}
+
+.blog-stat__item i { /* задает цвет иконки */
+    color: #95e1d3;
+}
+
+/* Map */
+
+.map {
+    text-align: center;
+}
+
+.map__title {
+    font-weight: 700;
+    font-size: 24px;
+    color: #f38181;
+    text-transform: uppercase;
+}
+
+.map__title a { /* она примет значения родителя */
+    color: inherit;
+    text-decoration: none;
+}
+
+.map__title a:hover { /* при наводе будет показываться линия под заголовком */
+    text-decoration: underline;
+}
+
+.map__title::after {
+    content:"";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #f38181;
+    margin: 15px auto 0;
+}
+
+/* Footer */
+
+.footer {
+    padding-top: 35px;
+    background-color: #f8f8f8;
+}
+
+.footer__inner {
+    display: flex;
+    flex-wrap: wrap; /* для мобильной версии */
+    justify-content: space-between;
+    padding-bottom: 65px;
+}
+
+.footer__col--first {
+    width: 40%;
+}
+
+.footer__col--second {
+    width: 32.5%;
+}
+
+.footer__col--third {
+    width: 22.5%;
+}
+
+.footer__logo {
+    font-weight: 700;
+    font-size: 46px;
+    color: #cccccc;
+    margin-bottom: 30px;
+}
+
+.footer__text {
+    font-family: 'Roboto', sans-serif;
+    color: #999999;
+    margin-bottom: 30px;
+}
+
+.footer_social {
+    margin-bottom: 25px;
+}
+
+.footer__social-header {
+    font-size: 14px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.footer__social-header b { /* включается размер шрифта для тега"b" */
+    font-size: 18px;
+}
+
+.footer__social-content {
+    padding-top: 15px;
+
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    color: #999999;
+}
+
+.footer__social-content a { /* тег"a" меняет цвет иконки */
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+
+    font-size: 18px;
+    color: #95e1d3;
+}
+
+.footer__title {
+    font-size: 14px;
+    text-transform: uppercase;
+    margin: 30px 0;
+}
+
+/* Blogs */
+
+.blogs__item {
+    display: flex;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+.blogs__content {
+    padding-left: 20px;
+    padding-right: 30px;
+}
+
+.blogs__title {
+    font-size: 12px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #333333;
+
+    line-height: 1.5;
+    display: block; /* если line-height не срабатывает, прописываем display-block */
+}
+
+.blogs__title:hover {
+    text-decoration: underline; /* при наводе будет показываться линия под заголовком */
+}
+
+.blogs__date {
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-size: 13px;
+    line-height: 1.8;
+    color: #999999;
+}
+
+/* Instagram */
+
+.instagram {
+    display: flex;
+    flex-wrap: wrap; /* чтобы наши колонки могли перескакивать на новую строку */
+    justify-content: space-between;
+
+    max-width: 270px;
+}
+
+.instagram__item {
+    width: 33.33333%;
+    border-bottom: 2px solid #ffffff;
+    border-right: 2px solid #fff;
+}
+
+.instagram__item img {
+    display: block;  /* чтобы не было отступа между картинками */
+    max-width: 100%;
+    height: auto; /* эти два элемента прописывают в мобильной версии для того, чтобы картинки пропорционально уменьшались */
+}
+
+.instagram__text {
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-size: 13px;
+    line-height: 1.9;
+    padding-top: 13px;
+}
+
+/* Subscribe */
+
+.subscribe {
+    display: flex; /* прописываем display: flex, чтобы убрать зазор между инпутом и сабскрайбом */
+    width: 100%;
+    max-width: 380px;
+
+}
+
+.subscribe__input {
+    background: #fff;
+    border: 1px solid #e7e7e7;
+    border-right: 0;
+
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-size: 15px;
+    color: #333333;
+
+    padding: 10px 57px 10px 10px;
+}
+
+.subscribe__input::placeholder {
+    color: #cccccc;
+}
+
+.subscribe__input:focus { 
+    outline: 0; /* при нажатии убирает обводку кнопки (outline) */
+    border-color: #95e1d3; /* при нажатии меняет цвет обводки кнопки (outline) */
+}
+
+.subscribe__btn {
+    background-color: #95e1d3;
+    border: 0;
+    cursor: pointer;
+
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #ffffff;
+    text-transform: uppercase;
+
+    padding: 10px 33px;
+
+    transition: background .2s linear; /* чтобы кнопка затемнялась плавно */
+}
+
+.subscribe__btn:hover { /* чтобы немного затемнить кнопку */
+    background-color: #74c7b8;
+}
+
+.subscribe__btn:focus { 
+    outline: 0; /* при нажатии убирает обводку кнопки (outline) */
+}
+
+/* Copyright */
+
+.copyright {
+    border-top: 1px solid #e5e5e5;
+    font-size: 14px;   
+    text-align: center;
+    padding: 20px 0;
+}
+
+.copyright span {
+    color: #f38181; /* span прописывается, если часть текста имеет другой цвет */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

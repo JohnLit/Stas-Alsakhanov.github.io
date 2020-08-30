@@ -1,0 +1,439 @@
+@media (max-width: 1230px) {
+
+    /*  Intro */
+
+    .intro__suptitle {
+        font-size: 52px;
+    }
+
+    .intro__title {
+        font-size: 120px;
+    }
+
+    /*  Reviews */
+    
+    .reviews__text {
+        font-size: 20px;
+    }
+
+}
+
+@media (max-width: 990px) {
+
+    /*  Intro */
+
+    .intro__suptitle {
+        font-size: 32px;
+    }
+
+    .intro__title {
+        font-size: 80px;
+    }
+
+    /* Stat */
+
+    .stat {
+        justify-content: center;
+    }
+
+    .stat__item {
+        flex: none;
+        width: 33.33333%;
+        
+        border: 0;
+        padding: 30px 0;
+    }
+    
+    .stat__item:last-child { /* последний элемент */
+        border-right: 0;
+    }
+
+    /* Services */
+
+    .services__item {
+        width: 50%;
+        padding-bottom: 0;
+    }
+
+    .services__item--border {
+        border-bottom: 0;
+    }
+
+    /*  Reviews */
+
+    .reviews__icon {
+        padding: 30px;
+    }
+
+    .reviews__item {
+        padding-left: 175px;
+    }
+
+    .reviews__img {
+        width: 150px;
+        height: 150px;
+        left: 0;
+
+    }
+
+    /*  Clients */
+
+    .clients {
+        max-width: 600px;
+        margin: 0 auto; /* весь контент располагается по центру */
+    }
+    
+    .clients__item {
+        width: 100%;
+        padding-right: 0;
+    }
+
+    .clients__item:last-child {
+        padding-bottom: 0;
+    }
+
+    /* Footer */
+
+    .footer__col--first {
+        width: 100%;
+    }
+
+    .footer__col--second {
+        width: 60%;
+    }
+    
+    .footer__col--third {
+        width: 40%;
+    }
+   
+}
+
+@media (max-width: 770px) {
+
+    /* Intro */
+
+    .intro {
+        min-height: 568px;
+    }
+
+    /* Header */
+
+    .header {
+        padding: 10px 0;
+    }
+
+    /* Nav */
+  
+    .nav {
+        display: none; /* скрыть меню */
+        width: 100%; /* на всю ширину экрана */
+
+        position: absolute;
+        top: 100%;
+        left: 0;
+
+        background-color: #eb8b8d;
+    }
+
+    .nav.active {
+        display: block;
+    }
+
+    .nav__link {
+        display: block; /* делаем меню столбиком */
+        margin: 0;
+        padding: 8px 20px;
+    }
+
+    .nav-toggle {
+        display: block;  /* мы показываем бургер-меню */
+    }
+
+  /* Section */
+
+    .section {
+        padding: 40px 0;
+    }
+
+    .section--devices {
+        padding-bottom: 0;
+    }
+
+    .section--gray {
+        padding-top: 40px;
+    }
+
+    /* Card */
+
+    .card {
+        justify-content: center;
+        margin-top: 50px;
+    }
+
+    .card__item {
+        width: 100%;
+        max-width: 410px;
+        margin-bottom: 30px;
+    }
+
+    .card__item:last-child {
+        margin-bottom: 0;
+    }
+    
+    /* Slider */
+
+    .slider__text {
+        display: none;
+    }
+    
+    .slider__item.active::before {
+        width: 50%;
+    }
+
+    /* Services */
+
+    .services {
+        justify-content: center;
+    }
+
+    .services__item {
+        width: 100%;
+        max-width: 400px;
+        padding-left: 55px; 
+        padding-right: 0;  
+    } 
+    
+    .services__icon {
+        top: 25%;
+        left: 0;
+    }
+
+    /* Wedo */
+
+    .wedo__img {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .wedo__item {
+        width: 100%;
+    }
+
+    /*  Reviews */ 
+
+    .reviews__icon {
+        position: static; /* картинка смещается вверх по центру */
+        margin: 0 auto -30px;
+        padding: 15px;
+    }
+
+    .reviews__img {
+        width: 100px;
+        height: 100px;
+        position: static; /* картинка смещается вверх по центру */
+        margin: 0 auto -35px;
+    }
+
+    .reviews__item {
+        padding-left: 0;
+        padding-top: 50px;
+    }
+
+    .reviews__text {
+        font-size: 16px;
+    }
+
+    .reviews__author {
+        font-size: 20px;
+    }
+
+    /* Logos */
+
+    .logos {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .logos__item {
+        width: 33.33333%;
+        margin-bottom: 20px;
+    }
+
+    .logos__img {
+        margin: 0 auto;
+    }
+
+    /* Works */
+
+    .works {
+        flex-wrap: wrap;
+    }
+
+    .works__col {
+        flex: none;
+        width: 50%;
+    }
+
+    /* Blog */ 
+
+    .blog {
+        justify-content: center;
+    }
+
+    .blog__item {
+        width: 100%;
+        max-width: 410px;
+        margin-bottom: 30px;
+    }
+
+    .blog__item:last-child {
+        margin-bottom: 0;
+    }
+
+}
+
+@media (max-width: 575px) {
+
+    /*  Intro */
+
+      
+
+    .intro__suptitle {
+        font-size: 22px;
+    }
+
+    .intro__title {
+        font-size: 40px;
+    }
+
+    /* Section */ 
+
+    .section__header {
+        margin-bottom: 30px;
+    }
+
+    .section__suptitle {
+        font-size: 18px;
+    }
+
+    .section__title {
+        font-size: 24px;
+    }
+
+    .section__title::after {
+        margin: 20px auto;
+    }
+
+    /* Stat */
+
+    .stat__item {
+        width: 100%;
+
+        border-bottom: 1px solid #b5eae0;
+    }
+
+    .stat__item:last-child {
+        border-bottom: 0;
+    }
+
+    .stat__count {
+        font-size: 52px;
+    }
+
+    /* Devices */
+
+    .devices {
+        max-width: 320px;
+    }
+
+    .devices__item--iphone {
+        max-width: 160px;
+        bottom: -50px;
+        right: -40px;
+    }
+
+    /*  Reviews */ 
+
+    .reviews .slick-slider {
+        padding: 0;
+    }
+
+    .slick-arrow {
+        top: 13%;
+    }
+
+    /* Logos */
+
+    .logos__item {
+        width: 50%;
+    }
+
+    /* Works */
+
+    .works__col {
+        width: 100%;
+    }
+
+    /*  Clients */ 
+
+    .clients__photo {
+        position: static; /* картинка смещается вверх по центру */
+    }
+
+    .clients__item {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .clients__prof::after {
+        margin: 15px auto; /* черточка смещается по центру */
+    }
+
+    /* Footer */
+
+    .footer__social-content a {
+        font-size: 16px;
+    }
+
+    .footer__inner {
+        padding-bottom: 30px;
+    }
+
+    .footer__col--second {
+        width: 100%;
+    }
+    
+    .footer__col--third {
+        width: 100%;
+    }
+
+    /* Blogs */
+
+    .blogs__title {
+        font-size: 10px;
+    }
+
+    .blogs__date {
+        font-size: 11px;
+    }
+  
+    /* Copyright */
+
+    .copyright {
+        font-size: 12px;
+        padding: 15px 0;
+    }
+
+    /* Subscribe */
+
+    .subscribe__input {
+        font-size: 13px;
+        padding: 10px 19px;
+    }
+
+    .subscribe__btn {
+        font-size: 12px;
+        padding: 10px 20px;
+    }
+
+}
