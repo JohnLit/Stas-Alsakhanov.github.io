@@ -1,0 +1,21 @@
+@font-face {
+    font-family: "Point-ExtraBold";
+    src: url("Point-ExtraBold.eot");
+    src: local("Point Extra Bold"), local("Point-ExtraBold"),
+        url("../fonts/Point-ExtraBold/Point-ExtraBold.eot") format("embedded-opentype"), url("../fonts/Point-ExtraBold/Point-ExtraBold.woff2") format("woff2"),
+        url("../fonts/Point-ExtraBold/Point-ExtraBold.woff") format("woff"), url("../fonts/Point-ExtraBold/Point-ExtraBold.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ProximaNova-Regular';
+    src: url('ProximaNova-Regular.eot');
+    src: local('Proxima Nova Regular'), local('ProximaNova-Regular'),
+        url('../fonts/ProximaNova-Regular/ProximaNova-Regular.eot') format('embedded-opentype'),
+        url('../fonts/ProximaNova-Regular/ProximaNova-Regular.woff2') format('woff2'),
+        url('../fonts/ProximaNova-Regular/ProximaNova-Regular.woff') format('woff'),
+        url('../fonts/ProximaNova-Regular/ProximaNova-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
