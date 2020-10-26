@@ -1,0 +1,187 @@
+/* About-company */
+.about {
+    background: linear-gradient(107.08deg, #DCDBDB 7.12%, #F7F7F7 81.09%);
+    overflow: hidden;
+}
+.about-company {
+    display: flex;
+    background: linear-gradient(107.08deg, #DCDBDB 7.12%, #F7F7F7 81.09%);
+    position: relative;
+}
+.about-company__black {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.about-company__inner {
+    flex: 1;
+    width: 100%;
+    margin-right: 35px;
+    padding: 0 15px;
+}
+.about-company__info {
+    max-width: 735px;
+    width: 100%;
+    margin-left: auto;
+    padding: 195px 0 114px;
+}
+.about-company__header {
+    margin-bottom: 55px;
+}
+.about-company__footer {
+    max-width: 579px;
+    width: 100%;
+    margin-top: 157px;
+}
+
+/* About-us */
+.about-us {
+    padding: 167px 0 233px;
+    position: relative;
+}
+.about-us__brown {
+    position: absolute;
+    top: -188px;
+    right: 0;
+}
+.about-us__inner {
+    max-width: 1170px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+.about-us__header {
+    margin-bottom: 95px;
+}
+.about-us__body {
+    display: flex;
+}
+.about-us__info {
+    margin-left: 50px;
+    margin-right: -120px;
+}
+.about-us__info-header {
+    font-size: 24px;
+    color: #575757;
+    margin-bottom: 70px;
+}
+.about-us__name {
+    text-transform: uppercase;
+}
+
+/* Partners */
+.partners__header {
+    margin-bottom: 70px;
+    text-align: center;
+}
+.partners__body {
+    padding: 78px 0;
+    background-color: #fff;
+}
+.partners__img {
+    margin: 0 auto;
+}
+
+/* Медиа-запросы */
+@media (max-width: 1440px) {
+    .about-company__img {
+        width: 500px;
+        object-fit: cover;
+    }
+    .about-company__black {
+        top: -70px;
+        left: -70px;
+    }
+    .about-company__info {
+        padding: 80px 0 50px;
+    }
+    .about-company__footer {
+        margin-top: 80px;
+    }
+    .about-company__header {
+        margin-bottom: 40px;
+    }
+    .about-us {
+        padding: 100px 0 150px;
+    }
+    .about-us__brown {
+        right: -70px;
+    }
+    .about-us__info-header {
+        margin-bottom: 30px;
+        font-size: 20px;
+    }
+    .about-us__img {
+        height: 400px;
+    }
+    .about-us__info {
+        margin-right: 0;
+    }
+    .about-us__header {
+        margin-bottom: 70px;
+    }
+}
+@media (max-width: 992px) {
+    .about-company {
+        display: block;
+    }
+    .about-company__img {
+        width: 100%;
+        height: 500px;
+    }
+    .about-us {
+        padding: 80px 0 100px;
+    }
+    .about-us__body {
+        display: block;
+    }
+    .about-us__info {
+        margin-left: 0;
+        margin-top: 30px;
+    }
+    .partners__body {
+        padding: 50px 0;
+    }
+}
+@media (max-width: 768px) {
+    .about-company__black {
+        display: none;
+    }
+    .about-us__brown {
+        display: none;
+    }
+}
+@media (max-width: 560px) {
+    .about-company__info {
+        padding: 50px 0 30px;
+    }
+    .about-company__header {
+        margin-bottom: 30px;
+    }
+    .about-company__footer {
+        margin-top: 50px;
+    }
+    .about-company__img {
+        height: 400px;
+    }
+    .about-us__header {
+        margin-bottom: 40px;
+    }
+    .about-us__info-header {
+        font-size: 16px;
+    }
+    .partners__body {
+        padding: 30px 0 20px;
+    }
+    .partners__header {
+        margin-bottom: 40px;
+    }
+}
+@media (max-width: 460px) {
+    .about-us__img {
+        height: auto;
+    }
+    .about-us {
+        padding: 50px 0;
+    }
+}

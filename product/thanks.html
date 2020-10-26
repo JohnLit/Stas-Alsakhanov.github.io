@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Спасибо</title>
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/thanks.css">
+
+</head>
+
+<body>
+
+    <section class="thanks">
+        <div class="thanks__logo anim-items anim-no-hide anim-right">
+            <img src="images/header/logo.svg" alt="">
+        </div>
+        <img class="thanks__black anim-items anim-no-hide anim-right" src="images/intro/01.png" alt="">
+        <div class="thanks__inner">
+            <h1 class="thanks__title anim-items anim-no-hide anim-top">Спасибо!</h1>
+            <p class="thanks__text anim-items anim-no-hide anim-show">Вам назначен персональный брокер для консультации
+            </p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <img class="footer__brown" src="images/thanks/img.png" alt="">
+        <div class="footer__header anim-items anim-no-hide anim-right">
+            <h2 class="footer__title">Недвижимость столиц</h2>
+        </div>
+        <div class="footer__body">
+            <div class="footer__col anim-items anim-no-hide anim-scale">
+                <div class="footer__name">Услуги</div>
+                <img class="footer__icon" src="images/thanks/arrow-down.svg" alt="">
+                <ul class="footer__list">
+                    <li class="footer__item ">
+                        <a class="footer__link" href="">О компании</a>
+                    </li>
+                    <li class="footer__item ">
+                        <a class="footer__link" href="">Консультация юриста</a>
+                    </li>
+                    <li class="footer__item">
+                        <a class="footer__link" href="" data-popup="popup-vacancies">Вакансии</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__col anim-items anim-no-hide anim-scale">
+                <div class="footer__name">Наши офисы</div>
+                <img class="footer__icon" src="images/thanks/arrow-down.svg" alt="">
+                <ul class="footer__list">
+                    <li class="footer__item">
+                        <a class="footer__link" href="">Москва</a>
+                    </li>
+                    <li class="footer__item">
+                        <a class="footer__link" href="">Санкт-Петербург</a>
+                    </li>
+                    <li class="footer__item">
+                        <a class="footer__link" href="">Краснодар</a>
+                    </li>
+                    <li class="footer__item">
+                        <a class="footer__link" href="">Сочи</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__col footer__col--right anim-items anim-no-hide anim-show">
+                <a class="footer__phone" href="tel:+79857919374">+7 (985) 791 93 74</a>
+                <a class="footer__mail" href="mailto:info@continental-estate.ru">info@continental-estate.ru</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="popup popup-vacancies">
+        <div class="popup__wrapper">
+            <div class="popup__inner">
+                <div class="popup__content">
+                    <img class="popup__img" src="images/popup/img.png" alt="">
+                    <button class="popup__close"></button>
+                    <div class="popup__header">
+                        <div class="popup__title">Вакансии</div>
+                    </div>
+                    <div class="popup__body">
+                        <form class="form" id="form1">
+                            <div class="form__item form__item--popup">
+                                <div class="form__header">
+                                    <label class="form__title">ваше имя*</label>
+                                </div>
+                                <div class="form__body">
+                                    <input class="form__input form__input--popup" type="text" name="name"
+                                        placeholder="Имя " data-validate-field="name">
+                                </div>
+                            </div>
+                            <div class="form__item form__item--popup">
+                                <div class="form__header">
+                                    <label class="form__title">ваш номер телефона*</label>
+                                </div>
+                                <div class="form__body">
+                                    <input class="form__input form__input--popup" type="tel" name="tel"
+                                        placeholder="+7 999 555 44 66" data-validate-field="tel">
+                                </div>
+                            </div>
+                            <div class="form__item form__item--popup">
+                                <div class="form__header">
+                                    <label class="form__title">ваш email</label>
+                                </div>
+                                <div class="form__body">
+                                    <input class="form__input form__input--popup" type="email" name="email"
+                                        placeholder="email@gmail.com ">
+                                </div>
+                            </div>
+                            <div class="form__item form__item--margin">
+                                <textarea class="form__textarea form__textarea--popup form__textarea--height" type="text" name=""
+                                    placeholder="Краткое  резюме..."></textarea>
+                            </div>
+                            <div class="form__info">Полное резюме можно отправить по адресу hr@continental-estate.ru
+                            </div>
+                            <div class="form__descr form__descr--popup">* поля обязательные к заполнению</div>
+                            <div class="form__button">
+                                <button class="btn btn--middle" type="submit">Отправить</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/inputmask.min.js"></script>
+    <script src="js/just-validate.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
